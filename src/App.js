@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
 
+import { useState } from 'react';
+import './App.css';
+import CreateForm from './components/create-edit/createForm';
+import PostList from './components/post-view/postList';
+import { Post } from './components/services/post';
 function App() {
+  const [state, setState]=useState({title:"", description:"",author:"", reaction:0, formValid:false });
+
+ const addPost=(post)=>{
+  console.log(post)
+    setState(post);
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <CreateForm addPost={addPost}/>
+     {state && state.title !== "" && <PostList post={state} />}
     </div>
   );
 }
