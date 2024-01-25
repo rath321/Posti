@@ -8,7 +8,7 @@ function App() {
   const [state, setState]=useState({title:"", description:"",author:"", reaction:0, formValid:false });
 
  const addPost=(post)=>{
-  console.log(post)
+  // console.log(post)
     setState(post);
   }
   return (

@@ -2,18 +2,17 @@ import { useEffect, useState } from "react";
 import ViewList from "./listView";
 
 const PostList = (props) => {
-  const [state, setState] = useState({ posts: [] });
+  const [posts, setPosts] = useState([]);
 
-  useEffect(() => {
-    // console.log(state)
-    setState((prevState) => ({
-      posts: [...prevState.posts, props.post],
-    }));
-  }, [props.post]);
+  // useEffect(() => {
+  //   setPosts([props.post]);
+  // }, [props.post]);
+
+  console.log(posts);
 
   return (
     <>
-      <ViewList posts={state.posts} />
+      <ViewList posts={posts} />
     </>
   );
 };
