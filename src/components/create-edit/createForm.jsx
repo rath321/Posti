@@ -44,7 +44,7 @@ const CreateForm = (props) => {
           Submit
         </Button>
       </Form>
-    
+    <PostList post={FormData}/>
     </div>
   );
 };
