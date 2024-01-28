@@ -14,9 +14,10 @@ const Th = ({ item }) => {
     );
 }
 
-const Tr = ({ item }) => {
-    var allValues = Object.values(item).concat(
-        <a href="/#" className='text-primary'>Details</a>,
+const Tr = (props) => {
+  
+    var allValues = Object.values(props.item).concat(
+        <a href="/#"  className='text-primary'>Details</a>,
         <a href="/#" className='text-warning'>Edit</a>,
         <a href="/#" className='text-danger'>Delete</a>,
     );
@@ -37,7 +38,8 @@ const DataTable = ({ items, children }) => {
         var [item] = items;
         var headers = <Th item={item} />;
         var trs = items.map((item, index)=>{
-            return <Tr key={index} item={item} />
+            console.log(item, index)
+            return <Tr key={index} index={index} item={item} />
         });
     }
     return (

@@ -3,14 +3,18 @@ import { Form, Button } from "react-bootstrap";
 import { Post } from "../services/post";
 import './createForm.css'; // Import a separate CSS file for styling
 import PostList from "../post-view/postList";
-
-const CreateForm = (props) => {
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import { usePost } from "../services/handleRequest/handleRequest";
+import { postActions } from "../services/handleRequest/PostActions";
+const CreateForm = () => {
+  const context=usePost();
   const [FormData, setFormData] = useState({ title: "", description: "", author: "", reaction: 0 });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(FormData)
-    props.addPost(FormData);
+     context.postDispatch({ type: postActions.create, payload: FormData })
   };
 
   const handleChange = (e) => {

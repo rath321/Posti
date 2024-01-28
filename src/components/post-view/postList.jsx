@@ -2,17 +2,15 @@ import { useEffect, useState } from "react";
 import ViewList from "./listView";
 
 const PostList = (props) => {
-  const [posts, setPosts] = useState([]);
+  // console.log(props)
+// useEffect(()=>{
 
-  // useEffect(() => {
-  //   setPosts([props.post]);
-  // }, [props.post]);
-
-  console.log(posts);
+// })
+  
 
   return (
     <>
-      <ViewList posts={posts} />
+      <ViewList posts={props.posts.posts} />
     </>
   );
 };
